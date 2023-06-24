@@ -1,7 +1,7 @@
 <script>
     import { onMount } from "svelte";
 
-    onMount ( async() => {
+onMount ( async() => {
 const cvs = document.getElementById("myCanvas");
 const ctx = cvs.getContext("2d");
 
@@ -73,7 +73,7 @@ const grid = {
         for(let i = 0; i<20; i++){
             for(let j = 0; j<20; j++){
                 ctx.beginPath();
-                ctx.strokeStyle = "black";
+                ctx.strokeStyle = "white";
                 ctx.rect(this.position[i][j].x - 10, this.position[i][j].y -10, 20, 20);
                 ctx.stroke();
                 ctx.closePath();
@@ -242,7 +242,7 @@ const snake = {
     snakeHeadIndex : path.length - 1,//1,
     
     draw : function() {
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "white";
         for( let i = 0; i< this.position.length; i++){
             let p = this.position[i];
             ctx.beginPath();
@@ -355,6 +355,7 @@ requestAnimationFrame(main);
 
 <div class="container">
     <h3>Snake Game</h3>
+    <i><a href="/">Back Home</a></i>
     <canvas id="myCanvas"></canvas>
 </div>
 
@@ -362,9 +363,14 @@ requestAnimationFrame(main);
     .container {
         width: 80vw;
         margin: 0 auto;
+        display: grid;
+        place-items: center;
     }
     canvas{
         display: block;
-        border: 1px solid black;
+        border: 1px solid white;
+    }
+    i{
+        margin: 10px 0px;
     }
 </style>
